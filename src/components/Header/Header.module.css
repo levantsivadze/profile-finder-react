@@ -1,0 +1,26 @@
+.AppHeader {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	color: rgb(255, 255, 255);
+	text-align: center;
+}
+
+.AppHeader img {
+	float: left;
+	max-width: 75px;
+	max-height: 75px;
+	margin: auto;
+	width: auto;
+	height: auto;
+	cursor: pointer;
+	padding: 5px 0;
+}
+
+.AppHeader p {
+	margin: 0 auto;
+	padding: 0;
+	font-size: clamp(2em, 4vw, 70px);
+	color: rgb(51 153 219);
+}

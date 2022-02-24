@@ -1,0 +1,36 @@
+.searchInput {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	position: relative;
+	width: 40vw;
+	margin: auto;
+}
+
+.userRowsWrapper {
+	position: absolute;
+	overflow-y: scroll;
+	height: 0;
+	top: 100px;
+	width: 100%;
+	transition: height 200ms;
+}
+
+@media (max-width: 600px) {
+	.searchInput {
+			width: auto;
+			padding: 0 var(--small-screen-offset);
+	}
+	.userTilesWrapper.isOpen {
+			width: calc(100% - var(--small-screen-offset) * 2);
+			left: var(--small-screen-offset);
+	}
+}
+
+.userRowsWrapper::-webkit-scrollbar {
+	display: none;
+}
+
+.userRowsWrapper.isOpen {
+	height: 50vh;
+}
