@@ -5,33 +5,40 @@ import useDebounce from '../../hooks/useDebounce'
 function SearchBar(props) {
 	const { onDataReceived, onShowUsers, onInputFocus, onGetError } = props
 
-	const [userInput, setUserInput] = useState('levan')
+	const [userInput, setUserInput] = useState('')
 	const debouncedInput = useDebounce(userInput, 500)
 
 	const userInputHandler = (e) => {
 		setUserInput(e.target.value)
 	}
 
-	//typeahead - uncomment when styling is done also add error handling
 	useEffect(() => {
 		if (debouncedInput) {
 			onShowUsers(true)
-			fetch(`https://api.githubcom/search/users?=levan`)
+			fetch(`https://api.github.com/search/users?q=${debouncedInput}`)
 				.then((response) => {
-					return response.json()
+					if (response.status === 200) {
+						return response.json()
+					} else {
+						onGetError(`Error code: ${response.status}
+						Can't fetch data`)
+					}
 				})
 				.then((data) => {
+					onGetError('')
 					onDataReceived(data.items)
 				})
 				.catch((error) => {
-					console.log(error.message)
-					onGetError(error.message)
+					console.log(error.StatusCode)
+					onGetError(
+						`Problem with fetching Data. Please check for internet connection or API Url`
+					)
 				})
 		} else {
 			onShowUsers(false)
 			onDataReceived([])
 		}
-	}, [])
+	}, [debouncedInput])
 
 	return (
 		<input

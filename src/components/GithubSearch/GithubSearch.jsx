@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Notification from '../Notification/Notification'
 import SearchBar from '../SearchBar/SearchBar'
 import User from '../User/User'
 import classes from './GithubSearch.module.css'
@@ -22,11 +23,11 @@ function GithubSearch() {
 	}
 
 	const handleErrorMessage = (error) => {
-		console.log(`error: `, error);
+		console.log(`error: `, error)
 		setErrorMessage(error)
 	}
 
-	const isOpen = `${classes.isOpen}`//showUsers && inputFocus ? `${classes.isOpen}` : ''
+	const isOpen =  showUsers && inputFocus ? `${classes.isOpen}` : ''
 	console.log(`inputFocus: `, inputFocus)
 	console.log(`isOpen: `, isOpen)
 
@@ -39,10 +40,12 @@ function GithubSearch() {
 					onInputFocus={handleInputFocus}
 					onGetError={handleErrorMessage}
 				/>
-
-				<div className={`${classes.userRowsWrapper} ${isOpen}`}>
-					{users && users.map((user) => <User key={user.id} user={user} />)}
-				</div>
+				{errorMessage && <Notification message={errorMessage} />}
+				{!errorMessage && (
+					<div className={`${classes.userRowsWrapper} ${isOpen}`}>
+						{users && users.map((user) => <User key={user.id} user={user} />)}
+					</div>
+				)}
 			</div>
 		</main>
 	)
