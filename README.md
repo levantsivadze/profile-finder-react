@@ -2,7 +2,7 @@
 
 ## **About**
 
-This simple 'typeahead' page allows you to search for github profiles. Check for deployed page here:
+This simple 'typeahead' page allows you to search for github profiles. Check for deployed page here: [Vercel Page Deployment](https://profile-finder-react-j9k2te19a-levantsivadze.vercel.app/)
 
 **Build With**
 
