@@ -6,12 +6,15 @@ function SearchBar(props) {
 	const { onDataReceived, onShowUsers, onInputFocus, onGetError } = props
 
 	const [userInput, setUserInput] = useState('')
+
+	// give userInput 'slight' delay, so we don't send requests while typing
 	const debouncedInput = useDebounce(userInput, 500)
 
 	const userInputHandler = (e) => {
 		setUserInput(e.target.value)
 	}
 
+	// fetch data on keystroke, when input is 'delayed'
 	useEffect(() => {
 		if (debouncedInput) {
 			onShowUsers(true)

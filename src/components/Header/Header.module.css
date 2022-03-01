@@ -18,9 +18,9 @@
 	padding: 5px 0;
 }
 
-.AppHeader p {
-	margin: 0 auto;
-	padding: 0;
+.AppHeader h1 {
+	margin: 0;
+	
 	font-size: clamp(2em, 4vw, 70px);
 	color: rgb(51 153 219);
 }

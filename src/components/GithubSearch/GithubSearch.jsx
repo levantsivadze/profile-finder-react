@@ -23,16 +23,14 @@ function GithubSearch() {
 	}
 
 	const handleErrorMessage = (error) => {
-		console.log(`error: `, error)
 		setErrorMessage(error)
 	}
 
-	const isOpen =  showUsers && inputFocus ? `${classes.isOpen}` : ''
-	console.log(`inputFocus: `, inputFocus)
-	console.log(`isOpen: `, isOpen)
+	// give 'permission' to open a dropdown if input is under focus or is allowed to show users(this happens on keystrokes)
+	const isOpen = showUsers && inputFocus ? `${classes.isOpen}` : ''
 
 	return (
-		<main>
+		<main className={classes.githubSearch}>
 			<div className={classes.searchInput}>
 				<SearchBar
 					onDataReceived={handleUsers}

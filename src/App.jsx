@@ -6,11 +6,8 @@ import GithubSearch from './components/GithubSearch/GithubSearch'
 function App() {
 	return (
 		<div className={classes.App}>
-				<Header />
-			
-			<section className={classes.githubSearch}>
-				<GithubSearch />
-			</section>
+			<Header />
+			<GithubSearch />
 		</div>
 	)
 }

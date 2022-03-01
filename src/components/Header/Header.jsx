@@ -5,10 +5,10 @@ import logo from '../../images/octocat1.png'
 function Header() {
 	return (
 		<header className={classes.AppHeader}>
-			<a href='https://www.github.com/' target='_blank' rel='noreferrer'>
+			<a href='https://www.github.com/' target='_blank' rel='noreferrer' title='Visit Github'>
 				<img src={logo} alt='github' />
 			</a>
-			<p>Github Profile Finder</p>
+			<h1>Github Profile Finder</h1>
 		</header>
 	)
 }

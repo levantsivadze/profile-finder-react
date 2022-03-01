@@ -1,3 +1,12 @@
+:root {
+	--small-screen-offset: 20px;
+}
+
+.githubSearch {
+	height: 100%;
+	padding-top: 5%;
+}
+
 .searchInput {
 	display: flex;
 	justify-content: center;
@@ -16,21 +25,25 @@
 	transition: height 200ms;
 }
 
-@media (max-width: 600px) {
-	.searchInput {
-			width: auto;
-			padding: 0 var(--small-screen-offset);
-	}
-	.userTilesWrapper.isOpen {
-			width: calc(100% - var(--small-screen-offset) * 2);
-			left: var(--small-screen-offset);
-	}
-}
 
 .userRowsWrapper::-webkit-scrollbar {
 	display: none;
 }
 
+
 .userRowsWrapper.isOpen {
 	height: 50vh;
 }
+
+@media (max-width: 600px) {
+	.searchInput {
+		width: auto;
+		padding: 0 var(--small-screen-offset);
+	}
+	.userRowsWrapper.isOpen {
+		width: calc(100% - var(--small-screen-offset) * 2);
+		left: var(--small-screen-offset);
+	}
+}
+
+
