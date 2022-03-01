@@ -28,8 +28,12 @@ function SearchBar(props) {
 					}
 				})
 				.then((data) => {
-					onGetError('')
-					onDataReceived(data.items)
+					if (data.items.length === 0) {
+						onGetError(`Could not find user '${debouncedInput}'`)
+					} else {
+						onGetError('')
+						onDataReceived(data.items)
+					}
 				})
 				.catch((error) => {
 					console.log(error.StatusCode)
